@@ -2,34 +2,42 @@ import { actionCreators, CalendarState } from ".."
 import reducer from "./reducer"
 
 describe("CalendarReducer", () => {
-  it("increments to next year", () => {
-    const action = {
-      type: actionCreators.increment.type,
-    }
-    const initialState: CalendarState = {
-      year: 2000,
-      month: 11,
-    }
-    const expectedMonth = 0
-    const expectedYear = 2001
+	it("increments to next year", () => {
+		const action = {
+			type: actionCreators.increment.type,
+		}
+		const initialState: CalendarState = {
+			year: 2000,
+			month: 11,
+			currentDay: 12,
+		}
+		const expectedMonth = 0
+		const expectedYear = 2001
 
-    const state = reducer(initialState, action)
+		const { year, month } = reducer(initialState, action)
 
-    expect(state).toEqual({ year: expectedYear, month: expectedMonth })
-  })
-  it("decrements to prev year", () => {
-    const action = {
-      type: actionCreators.decrement.type,
-    }
-    const initialState: CalendarState = {
-      year: 2000,
-      month: 0,
-    }
-    const expectedMonth = 11
-    const expectedYear = 1999
+		expect({ year, month }).toEqual({
+			year: expectedYear,
+			month: expectedMonth,
+		})
+	})
+	it("decrements to prev year", () => {
+		const action = {
+			type: actionCreators.decrement.type,
+		}
+		const initialState: CalendarState = {
+			year: 2000,
+			month: 0,
+			currentDay: 12,
+		}
+		const expectedMonth = 11
+		const expectedYear = 1999
 
-    const state = reducer(initialState, action)
+		const { year, month } = reducer(initialState, action)
 
-    expect(state).toEqual({ year: expectedYear, month: expectedMonth })
-  })
+		expect({ year, month }).toEqual({
+			year: expectedYear,
+			month: expectedMonth,
+		})
+	})
 })
