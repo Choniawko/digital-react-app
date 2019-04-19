@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { RouteComponentProps } from "react-router-dom"
+import { EventItem } from "."
 import { RootState } from "../../store"
 import { actionCreators, Event } from "../../store/Event"
 
@@ -11,17 +12,24 @@ export interface Props extends RouteComponentProps<ParamsProps> {
 }
 
 const EventList = ({ events, getEvents }: Props): JSX.Element => {
+  const [currEvent, setCurrEvent] = useState()
   useEffect(() => {
     getEvents()
   }, [])
+  const handleClick = (event: Event) => (e: React.MouseEvent<HTMLElement>) => {
+    setCurrEvent(event)
+  }
   return (
     <>
       <h3>EventList</h3>
       <div className="list">
-        {events.map(({ id, name }) => (
-          <div key={id}>{name}</div>
+        {events.map(event => (
+          <div onClick={handleClick(event)} key={event.id}>
+            {event.name}
+          </div>
         ))}
       </div>
+      {currEvent && <EventItem event={currEvent} />}
     </>
   )
 }

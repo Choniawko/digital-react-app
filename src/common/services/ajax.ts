@@ -10,7 +10,7 @@ const getBaseHeaders = (): BaseHeaders => ({
 
 const get = (url: string, headers?: any) =>
   ajax.get(url, { ...getBaseHeaders(), ...headers })
-const post = (url: string, body: any, headers: any) =>
+const post = (url: string, body: any, headers?: any) =>
   ajax.post(url, body, { ...getBaseHeaders(), ...headers })
 
 const put = (url: string, body: any, headers?: any) =>

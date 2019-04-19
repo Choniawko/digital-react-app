@@ -9,6 +9,7 @@ import { Action } from "../actionCreator"
 const {
   getEvents,
   getEvent,
+  postEvent,
   updateEvents,
   updateEvent,
   setError,
@@ -34,4 +35,14 @@ const getEventEpic: Epic<Action<number>, Action<any>, RootState> = actions$ =>
       ),
     ),
   )
-export const epics = combineEpics(getEventsEpic, getEventEpic)
+const postEventEpic: Epic<Action<Event>, Action<any>, RootState> = actions$ =>
+  actions$.pipe(
+    ofType(postEvent.type),
+    mergeMap(event =>
+      ajax.post(apiUrl("events"), event).pipe(
+        mergeMap(() => of(getEvents.create())),
+        catchError(error => of(setError.create(error))),
+      ),
+    ),
+  )
+export const epics = combineEpics(getEventsEpic, getEventEpic, postEventEpic)

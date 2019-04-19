@@ -3,8 +3,8 @@ import { Event } from "../../store/Event/"
 export const testEvent: Event = {
   id: 1,
   name: "Name",
-  startDate: new Date(2019, 4, 16),
-  endDate: new Date(2019, 4, 23),
+  startDate: expect.any(Date),
+  endDate: expect.any(Date),
   description: "description",
   location: "location",
   category: {
