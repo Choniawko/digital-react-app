@@ -1,11 +1,11 @@
 export interface Event {
   id?: number
   name: string
-  startDate: Date
-  endDate: Date
+  startDate: Date | null
+  endDate: Date | null
   description: string
   location: string
-  category: ICategory
+  category: ICategory | null
 }
 
 export interface ICategory {
@@ -15,7 +15,7 @@ export interface ICategory {
 
 export interface EventState {
   events: ReadonlyArray<Event>
-  event: Event | null
+  event: Event
   count: number
   previos: number | null
   next: number | null
