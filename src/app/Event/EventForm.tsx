@@ -37,7 +37,9 @@ const EventForm = ({ event, postEvent }: Props): JSX.Element => {
           <input
             type="text"
             name="startDate"
-            value={eventForm.startDate.toLocaleString()}
+            value={
+              eventForm.startDate ? eventForm.startDate.toLocaleString() : ""
+            }
             onChange={handleInputChange}
           />
         </div>
@@ -46,7 +48,7 @@ const EventForm = ({ event, postEvent }: Props): JSX.Element => {
           <input
             type="text"
             name="endDate"
-            value={eventForm.endDate.toLocaleString()}
+            value={eventForm.endDate ? eventForm.endDate.toLocaleString() : ""}
             onChange={handleInputChange}
           />
         </div>
