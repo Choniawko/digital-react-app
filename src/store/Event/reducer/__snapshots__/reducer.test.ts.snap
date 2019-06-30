@@ -26,7 +26,18 @@ exports[`EventReducer calls updateEvents action 1`] = `
 Object {
   "count": 0,
   "error": "",
-  "event": null,
+  "event": Object {
+    "category": Object {
+      "id": 1,
+      "name": "name",
+    },
+    "description": "description",
+    "endDate": null,
+    "id": 1,
+    "location": "location",
+    "name": "Name",
+    "startDate": null,
+  },
   "events": Array [
     Object {
       "category": Object {

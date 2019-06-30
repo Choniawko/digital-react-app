@@ -3,7 +3,7 @@ import React from "react"
 import { Route, Switch } from "react-router-dom"
 
 import { CalendarBoard } from "../CalendarBoard"
-import { EventList } from "../Event"
+import { EventForm, EventList } from "../Event"
 import { Header } from "../Header"
 import "./App.css"
 
@@ -18,6 +18,7 @@ export default ({ history: { push } }: Props) => (
     <Switch>
       <Route exact path="/calendar-board" render={CalendarBoard} />
       <Route exact path="/event-list" component={EventList} />
+      <Route exact path="/event-form" component={EventForm} />
     </Switch>
   </div>
 )
