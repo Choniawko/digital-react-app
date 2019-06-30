@@ -27,11 +27,15 @@ Object {
   "count": 0,
   "error": "",
   "event": Object {
-    "category": null,
-    "description": "",
+    "category": Object {
+      "id": 1,
+      "name": "name",
+    },
+    "description": "description",
     "endDate": null,
-    "location": "",
-    "name": "",
+    "id": 1,
+    "location": "location",
+    "name": "Name",
     "startDate": null,
   },
   "events": Array [

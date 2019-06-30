@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-import { initEvent } from "../../fixtures/Event"
+import { testEvent } from "../../fixtures/Event"
 import { Action, RootState } from "../../store"
 import { actionCreators, Event } from "../../store/Event"
 
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const EventForm = ({ event, postEvent }: Props): JSX.Element => {
-  const [eventForm, setEventForm] = useState(event.id ? event : initEvent)
+  const [eventForm, setEventForm] = useState(event.id ? event : testEvent)
   const handleInputChange = ({ target: { name, value } }: InputEvent) => {
     setEventForm({ ...eventForm, [name]: value })
   }

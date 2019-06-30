@@ -1,10 +1,10 @@
 import { actionCreators, EventState } from ".."
-import { initEvent } from "../../../fixtures/Event"
+import { testEvent } from "../../../fixtures/Event"
 import { Action } from "../../actionCreator"
 
 export const INITIAL_STATE: EventState = {
   events: [],
-  event: initEvent,
+  event: testEvent,
   error: "",
   count: 0,
   previos: null,
