@@ -1,0 +1,36 @@
+.Header-logo-left {
+  animation: logo-spin-left infinite 10s linear;
+  height: 100px;
+  pointer-events: none;
+}
+.Header-logo-right {
+  animation: logo-spin-right infinite 10s linear;
+  height: 100px;
+  pointer-events: none;
+}
+.Header-container {
+  background-color: #282c34;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+@keyframes logo-spin-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes logo-spin-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
